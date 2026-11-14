@@ -2,7 +2,7 @@
    ICE BLOCK — OBSIDIAN THEME
    Geometric, sharp neo-brutalist theme derived from the Ice Block Design System.
    Author: salanmato
-   Version: 1.0.0
+   Version: 1.0.1
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Iceland&family=Jura:wght@500;600;700&family=Mona+Sans:ital,wght@0,400..800;1,400..800&display=swap');
@@ -21,6 +21,7 @@
 
   /* Typography Families */
   --font-heading: 'Mona Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading-theme: 'Mona Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-text:    'Jura', sans-serif;
   --font-interface: 'Jura', sans-serif;
   --font-monospace: 'Iceland', monospace;
@@ -51,7 +52,7 @@
   --pill-radius:   0px;
   --border-width:  1px;
 
-  /* Heading Font Weights & Alignment */
+  /* Heading Formatting */
   --heading-spacing: 1.2em 0 0.4em 0;
   --font-weight-headings: 700;
   --line-height-normal: 1.45;
@@ -249,52 +250,53 @@ body {
   letter-spacing: 0.01em;
 }
 
-h1, h2, h3, h4, h5, h6,
-.view-header-title,
-.inline-title,
-.markdown-rendered h1,
-.markdown-rendered h2,
-.markdown-rendered h3,
-.markdown-rendered h4,
-.markdown-rendered h5,
-.markdown-rendered h6 {
-  font-family: var(--font-heading) !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  text-align: left !important;
+body .markdown-rendered h1,
+body .markdown-rendered h2,
+body .markdown-rendered h3,
+body .markdown-rendered h4,
+body .markdown-rendered h5,
+body .markdown-rendered h6,
+body .inline-title,
+body .view-header-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
   letter-spacing: 0.02em;
 }
 
-h1, .markdown-rendered h1, .inline-title {
+body .markdown-rendered h1,
+body .inline-title {
   border-bottom: 1px solid var(--background-modifier-border);
   padding-bottom: 6px;
   margin-top: 1.2em;
   margin-bottom: 0.6em;
 }
 
-.markdown-rendered p,
-.markdown-rendered li,
-.cm-content {
-  text-align: left !important;
+body .markdown-rendered p,
+body .markdown-rendered li,
+body .cm-content {
+  text-align: left;
   font-family: var(--font-text);
 }
 
 /* --------------------------------------------------------------------------
    INTERNAL WIKILINKS ([[Note]]) — SIGNATURE ICE BLOCK BADGE
    -------------------------------------------------------------------------- */
-.theme-light .markdown-rendered a.internal-link,
-.theme-light .cm-s-obsidian span.cm-hmd-internal-link,
-.theme-light .cm-link .cm-underline {
-  background-color: var(--swatch-lime) !important;
-  color: var(--swatch-blue) !important;
-  border: 1px solid var(--swatch-blue) !important;
-  font-family: var(--font-monospace) !important;
+body.theme-light .markdown-rendered a.internal-link,
+body.theme-light .cm-s-obsidian span.cm-hmd-internal-link,
+body.theme-light .cm-s-obsidian span.cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-underline {
+  background-color: var(--swatch-lime);
+  color: var(--swatch-blue);
+  border: 1px solid var(--swatch-blue);
+  font-family: var(--font-monospace);
   font-size: 0.9em;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   padding: 1px 6px;
-  border-radius: 0px !important;
-  text-decoration: none !important;
+  border-radius: 0px;
+  text-decoration: none;
   display: inline-block;
   line-height: 1.25;
   font-weight: 600;
@@ -302,19 +304,20 @@ h1, .markdown-rendered h1, .inline-title {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.theme-dark .markdown-rendered a.internal-link,
-.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
-.theme-dark .cm-link .cm-underline {
-  background-color: var(--swatch-lime) !important;
-  color: var(--swatch-slate) !important;
-  border: 1px solid var(--swatch-slate) !important;
-  font-family: var(--font-monospace) !important;
+body.theme-dark .markdown-rendered a.internal-link,
+body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
+body.theme-dark .cm-s-obsidian span.cm-link .cm-underline,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-underline {
+  background-color: var(--swatch-lime);
+  color: var(--swatch-slate);
+  border: 1px solid var(--swatch-slate);
+  font-family: var(--font-monospace);
   font-size: 0.9em;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   padding: 1px 6px;
-  border-radius: 0px !important;
-  text-decoration: none !important;
+  border-radius: 0px;
+  text-decoration: none;
   display: inline-block;
   line-height: 1.25;
   font-weight: 600;
@@ -323,30 +326,30 @@ h1, .markdown-rendered h1, .inline-title {
 }
 
 /* Hover tactile elevation */
-.markdown-rendered a.internal-link:hover,
-.cm-s-obsidian span.cm-hmd-internal-link:hover {
+body .markdown-rendered a.internal-link:hover,
+body .cm-s-obsidian span.cm-hmd-internal-link:hover {
   transform: translateY(-1px);
   box-shadow: 0 1px 0 currentColor;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /* --------------------------------------------------------------------------
    TAGS (#tag)
    -------------------------------------------------------------------------- */
-.markdown-rendered a.tag,
-.cm-s-obsidian span.cm-hashtag {
-  font-family: var(--font-monospace) !important;
+body .markdown-rendered a.tag,
+body .cm-s-obsidian span.cm-hashtag {
+  font-family: var(--font-monospace);
   text-transform: uppercase;
   font-size: 0.88em;
-  border-radius: 0px !important;
-  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: 0px;
+  border: 1px solid var(--background-modifier-border);
   padding: 1px 6px;
-  text-decoration: none !important;
+  text-decoration: none;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.markdown-rendered a.tag:hover,
-.cm-s-obsidian span.cm-hashtag:hover {
+body .markdown-rendered a.tag:hover,
+body .cm-s-obsidian span.cm-hashtag:hover {
   transform: translateY(-1px);
   box-shadow: 0 1px 0 var(--background-modifier-border);
 }
@@ -354,13 +357,13 @@ h1, .markdown-rendered h1, .inline-title {
 /* --------------------------------------------------------------------------
    BUTTONS & TACTILE INTERACTIONS (y+2 box-shadow hover)
    -------------------------------------------------------------------------- */
-button,
-.mod-cta,
-input[type="submit"],
-input[type="button"] {
-  border-radius: 0px !important;
-  border: 1px solid var(--background-modifier-border) !important;
-  font-family: var(--font-heading) !important;
+body button,
+body .mod-cta,
+body input[type="submit"],
+body input[type="button"] {
+  border-radius: 0px;
+  border: 1px solid var(--background-modifier-border);
+  font-family: var(--font-heading);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -368,37 +371,37 @@ input[type="button"] {
   transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
 
-.theme-light button.mod-cta {
-  background: var(--swatch-lime) !important;
-  color: var(--swatch-blue) !important;
-  border-color: var(--swatch-blue) !important;
+body.theme-light button.mod-cta {
+  background: var(--swatch-lime);
+  color: var(--swatch-blue);
+  border-color: var(--swatch-blue);
 }
 
-.theme-dark button.mod-cta {
-  background: var(--swatch-lime) !important;
-  color: var(--swatch-slate) !important;
-  border-color: var(--swatch-lavender) !important;
+body.theme-dark button.mod-cta {
+  background: var(--swatch-lime);
+  color: var(--swatch-slate);
+  border-color: var(--swatch-lavender);
 }
 
-button:hover:not(:disabled),
-.mod-cta:hover:not(:disabled) {
+body button:hover:not(:disabled),
+body .mod-cta:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 2px 0 var(--background-modifier-border) !important;
+  box-shadow: 0 2px 0 var(--background-modifier-border);
 }
 
-button:active:not(:disabled),
-.mod-cta:active:not(:disabled) {
-  transform: translateY(0px) !important;
-  box-shadow: none !important;
+body button:active:not(:disabled),
+body .mod-cta:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: none;
 }
 
 /* --------------------------------------------------------------------------
    CHECKBOXES & TASK LISTS
    -------------------------------------------------------------------------- */
-input[type="checkbox"],
-.task-list-item-checkbox {
-  border-radius: 0px !important;
-  border: 1px solid var(--background-modifier-border) !important;
+body input[type="checkbox"],
+body .task-list-item-checkbox {
+  border-radius: 0px;
+  border: 1px solid var(--background-modifier-border);
   width: 14px;
   height: 14px;
   cursor: pointer;
@@ -409,14 +412,14 @@ input[type="checkbox"],
   transition: background 0.12s ease;
 }
 
-input[type="checkbox"]:checked,
-.task-list-item-checkbox:checked {
-  background-color: var(--swatch-lime) !important;
-  border-color: var(--background-modifier-border) !important;
+body input[type="checkbox"]:checked,
+body .task-list-item-checkbox:checked {
+  background-color: var(--swatch-lime);
+  border-color: var(--background-modifier-border);
 }
 
-input[type="checkbox"]:checked::after,
-.task-list-item-checkbox:checked::after {
+body input[type="checkbox"]:checked::after,
+body .task-list-item-checkbox:checked::after {
   content: "✓";
   position: absolute;
   top: 50%;
@@ -427,132 +430,132 @@ input[type="checkbox"]:checked::after,
   color: var(--theme-checkbox-marker, var(--swatch-blue));
 }
 
-.theme-dark input[type="checkbox"]:checked::after,
-.theme-dark .task-list-item-checkbox:checked::after {
-  color: var(--swatch-slate) !important;
+body.theme-dark input[type="checkbox"]:checked::after,
+body.theme-dark .task-list-item-checkbox:checked::after {
+  color: var(--swatch-slate);
 }
 
 /* --------------------------------------------------------------------------
    INPUT FIELDS & SEARCH
    -------------------------------------------------------------------------- */
-input[type="text"],
-input[type="search"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-textarea {
-  border-radius: 0px !important;
-  border: 1px solid var(--background-modifier-border) !important;
-  font-family: var(--font-text) !important;
-  background: var(--background-modifier-form-field) !important;
-  color: var(--text-normal) !important;
+body input[type="text"],
+body input[type="search"],
+body input[type="email"],
+body input[type="password"],
+body input[type="number"],
+body textarea {
+  border-radius: 0px;
+  border: 1px solid var(--background-modifier-border);
+  font-family: var(--font-text);
+  background: var(--background-modifier-form-field);
+  color: var(--text-normal);
 }
 
-input[type="text"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-  outline: none !important;
-  box-shadow: 0 2px 0 var(--background-modifier-border) !important;
+body input[type="text"]:focus,
+body input[type="search"]:focus,
+body textarea:focus {
+  outline: none;
+  box-shadow: 0 2px 0 var(--background-modifier-border);
 }
 
 /* --------------------------------------------------------------------------
    SIDEBARS, SPLITS & NAVIGATION
    -------------------------------------------------------------------------- */
-.workspace-ribbon {
-  border-right: 1px solid var(--background-modifier-border) !important;
+body .workspace-ribbon {
+  border-right: 1px solid var(--background-modifier-border);
 }
 
-.workspace-split.mod-left-split {
-  border-right: 1px solid var(--background-modifier-border) !important;
+body .workspace-split.mod-left-split {
+  border-right: 1px solid var(--background-modifier-border);
 }
 
-.workspace-split.mod-right-split {
-  border-left: 1px solid var(--background-modifier-border) !important;
+body .workspace-split.mod-right-split {
+  border-left: 1px solid var(--background-modifier-border);
 }
 
-.nav-folder-title,
-.nav-file-title {
-  border-radius: 0px !important;
+body .nav-folder-title,
+body .nav-file-title {
+  border-radius: 0px;
   font-family: var(--font-interface);
 }
 
-.nav-file-title.is-active {
-  border: 1px solid var(--background-modifier-border) !important;
+body .nav-file-title.is-active {
+  border: 1px solid var(--background-modifier-border);
 }
 
-.theme-light .nav-file-title.is-active {
-  background-color: var(--swatch-lavender) !important;
-  color: var(--swatch-blue) !important;
+body.theme-light .nav-file-title.is-active {
+  background-color: var(--swatch-lavender);
+  color: var(--swatch-blue);
 }
 
-.theme-dark .nav-file-title.is-active {
-  background-color: #525465 !important;
-  color: var(--swatch-lime) !important;
+body.theme-dark .nav-file-title.is-active {
+  background-color: #525465;
+  color: var(--swatch-lime);
 }
 
 /* --------------------------------------------------------------------------
    TABS & TAB HEADERS (Flat Neo-Brutalist, No Upper Borders, No Curved Wings, No Shadows)
    -------------------------------------------------------------------------- */
-.workspace-tab-header-container,
-.workspace-tab-header-container-inner {
-  box-shadow: none !important;
+body .workspace-tab-header-container,
+body .workspace-tab-header-container-inner {
+  box-shadow: none;
 }
 
-.workspace-tab-header::before,
-.workspace-tab-header::after {
-  display: none !important;
-  content: none !important;
-  box-shadow: none !important;
+body .workspace-tab-header::before,
+body .workspace-tab-header::after {
+  display: none;
+  content: none;
+  box-shadow: none;
 }
 
-.workspace-tab-header {
-  border-radius: 0px !important;
-  border-top: none !important;
-  border-top-width: 0px !important;
-  box-shadow: none !important;
+body .workspace-tab-header {
+  border-radius: 0px;
+  border-top: none;
+  border-top-width: 0px;
+  box-shadow: none;
   font-family: var(--font-heading);
   text-transform: uppercase;
   font-size: 0.85em;
   letter-spacing: 0.02em;
 }
 
-.workspace-tab-header.is-active {
-  border-radius: 0px !important;
-  border-top: none !important;
-  border-top-width: 0px !important;
-  box-shadow: none !important;
+body .workspace-tab-header.is-active {
+  border-radius: 0px;
+  border-top: none;
+  border-top-width: 0px;
+  box-shadow: none;
 }
 
-.workspace-tab-header-inner {
-  border-radius: 0px !important;
-  box-shadow: none !important;
-  border-top: none !important;
+body .workspace-tab-header-inner {
+  border-radius: 0px;
+  box-shadow: none;
+  border-top: none;
 }
 
-.mod-left-split .workspace-tab-header.is-active,
-.mod-right-split .workspace-tab-header.is-active,
-.mod-root .workspace-tab-header.is-active {
-  border-top: none !important;
-  border-top-width: 0px !important;
-  box-shadow: none !important;
+body .mod-left-split .workspace-tab-header.is-active,
+body .mod-right-split .workspace-tab-header.is-active,
+body .mod-root .workspace-tab-header.is-active {
+  border-top: none;
+  border-top-width: 0px;
+  box-shadow: none;
 }
 
 /* --------------------------------------------------------------------------
    MODALS, PROMPTS & MENUS
    -------------------------------------------------------------------------- */
-.modal,
-.prompt,
-.menu {
-  border-radius: 0px !important;
-  border: 1px solid var(--background-modifier-border) !important;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25) !important;
+body .modal,
+body .prompt,
+body .menu {
+  border-radius: 0px;
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-.modal-title {
-  font-family: var(--font-heading) !important;
-  text-transform: uppercase !important;
+body .modal-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
   font-weight: 700;
-  text-align: left !important;
+  text-align: left;
   border-bottom: 1px solid var(--background-modifier-border);
   padding-bottom: 6px;
 }
@@ -560,41 +563,41 @@ textarea:focus {
 /* --------------------------------------------------------------------------
    CODE BLOCKS & INLINE CODE
    -------------------------------------------------------------------------- */
-code,
-kbd,
-pre {
-  font-family: var(--font-monospace) !important;
-  border-radius: 0px !important;
+body code,
+body kbd,
+body pre {
+  font-family: var(--font-monospace);
+  border-radius: 0px;
 }
 
-.markdown-rendered :not(pre) > code {
+body .markdown-rendered :not(pre) > code {
   border: 1px solid var(--background-modifier-border);
   padding: 1px 4px;
 }
 
-pre {
-  border: 1px solid var(--background-modifier-border) !important;
-  padding: 12px !important;
+body pre {
+  border: 1px solid var(--background-modifier-border);
+  padding: 12px;
 }
 
 /* --------------------------------------------------------------------------
    CALLOUTS & BLOCKQUOTES
    -------------------------------------------------------------------------- */
-.callout {
-  border-radius: 0px !important;
-  border: 1px solid var(--background-modifier-border) !important;
-  background-color: var(--background-secondary-alt) !important;
+body .callout {
+  border-radius: 0px;
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-secondary-alt);
 }
 
-.callout-title {
-  font-family: var(--font-heading) !important;
-  text-transform: uppercase !important;
+body .callout-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
   font-weight: 700;
 }
 
-blockquote {
-  border-radius: 0px !important;
-  border-left: 3px solid var(--background-modifier-border) !important;
+body blockquote {
+  border-radius: 0px;
+  border-left: 3px solid var(--background-modifier-border);
   font-family: var(--font-text);
   margin-left: 0;
   padding-left: 12px;
@@ -603,20 +606,20 @@ blockquote {
 /* --------------------------------------------------------------------------
    TABLES
    -------------------------------------------------------------------------- */
-.markdown-rendered table {
+body .markdown-rendered table {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid var(--background-modifier-border);
 }
 
-.markdown-rendered th,
-.markdown-rendered td {
-  border: 1px solid var(--background-modifier-border) !important;
+body .markdown-rendered th,
+body .markdown-rendered td {
+  border: 1px solid var(--background-modifier-border);
   padding: 6px 12px;
-  text-align: left !important;
+  text-align: left;
 }
 
-.markdown-rendered th {
+body .markdown-rendered th {
   font-family: var(--font-heading);
   text-transform: uppercase;
   font-weight: 700;
@@ -626,8 +629,8 @@ blockquote {
 /* --------------------------------------------------------------------------
    STATUS BAR
    -------------------------------------------------------------------------- */
-.status-bar {
-  font-family: var(--font-monospace) !important;
-  font-size: 13px !important;
-  border-top: 1px solid var(--background-modifier-border) !important;
+body .status-bar {
+  font-family: var(--font-monospace);
+  font-size: 13px;
+  border-top: 1px solid var(--background-modifier-border);
 }
