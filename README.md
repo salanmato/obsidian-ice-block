@@ -19,6 +19,16 @@ A sharp, geometric, neo-brutalist theme for [Obsidian](https://obsidian.md) insp
 
 ---
 
+## Screenshots
+
+![Ice Block Theme Overview](screenshot_01.png)
+
+![Ice Block Theme Palette & Tasks](screenshot_02.png)
+
+![Ice Block Theme Callouts & Code](screenshot_03.png)
+
+---
+
 ## Palette
 
 | Color | Hex | Role |
