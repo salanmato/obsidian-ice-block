@@ -2,7 +2,7 @@
    ICE BLOCK — OBSIDIAN THEME
    Geometric, sharp neo-brutalist theme derived from the Ice Block Design System.
    Author: salanmato
-   Version: 1.0.2
+   Version: 1.0.3
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Iceland&family=Jura:wght@500;600;700&family=Mona+Sans:ital,wght@0,400..800;1,400..800&display=swap');
@@ -257,7 +257,21 @@ body .markdown-rendered h4,
 body .markdown-rendered h5,
 body .markdown-rendered h6,
 body .inline-title,
-body .view-header-title {
+body .view-header-title,
+body .cm-header,
+body .cm-header-1,
+body .cm-header-2,
+body .cm-header-3,
+body .cm-header-4,
+body .cm-header-5,
+body .cm-header-6,
+body .HyperMD-header,
+body .HyperMD-header-1,
+body .HyperMD-header-2,
+body .HyperMD-header-3,
+body .HyperMD-header-4,
+body .HyperMD-header-5,
+body .HyperMD-header-6 {
   font-family: var(--font-heading);
   font-weight: 700;
   text-transform: uppercase;
@@ -266,7 +280,8 @@ body .view-header-title {
 }
 
 body .markdown-rendered h1,
-body .inline-title {
+body .inline-title,
+body .HyperMD-header-1 {
   border-bottom: 1px solid var(--background-modifier-border);
   padding-bottom: 6px;
   margin-top: 1.2em;
@@ -285,8 +300,7 @@ body .cm-content {
    -------------------------------------------------------------------------- */
 body.theme-light .markdown-rendered a.internal-link,
 body.theme-light .cm-s-obsidian span.cm-hmd-internal-link,
-body.theme-light .cm-s-obsidian span.cm-link .cm-underline,
-body.theme-light .markdown-source-view.mod-cm6 .cm-underline {
+body.theme-light .cm-hmd-internal-link {
   background-color: var(--swatch-lime);
   color: var(--swatch-blue);
   border: 1px solid var(--swatch-blue);
@@ -306,8 +320,7 @@ body.theme-light .markdown-source-view.mod-cm6 .cm-underline {
 
 body.theme-dark .markdown-rendered a.internal-link,
 body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
-body.theme-dark .cm-s-obsidian span.cm-link .cm-underline,
-body.theme-dark .markdown-source-view.mod-cm6 .cm-underline {
+body.theme-dark .cm-hmd-internal-link {
   background-color: var(--swatch-lime);
   color: var(--swatch-slate);
   border: 1px solid var(--swatch-slate);
@@ -323,6 +336,19 @@ body.theme-dark .markdown-source-view.mod-cm6 .cm-underline {
   font-weight: 600;
   box-sizing: border-box;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Ensure inner CodeMirror underline elements NEVER duplicate borders or backgrounds */
+body .cm-underline,
+body .cm-s-obsidian .cm-underline,
+body .cm-hmd-internal-link .cm-underline,
+body span.cm-link .cm-underline {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  display: inline;
 }
 
 /* Hover tactile elevation */
