@@ -1,0 +1,633 @@
+/* ==========================================================================
+   ICE BLOCK — OBSIDIAN THEME
+   Geometric, sharp neo-brutalist theme derived from the Ice Block Design System.
+   Author: salanmato
+   Version: 1.0.0
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Jura:wght@500;600;700&family=Mona+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+/* --------------------------------------------------------------------------
+   GLOBAL ROOTS & TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Core Palette Swatches */
+  --swatch-slate:    #5F6173;
+  --swatch-red:      #CC3C1C;
+  --swatch-blue:     #212B99;
+  --swatch-lavender: #C7C9DA;
+  --swatch-lime:     #A9E71B;
+  --swatch-ice:      #EFF1F9;
+
+  /* Typography Families */
+  --font-heading: 'Mona Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-text:    'Jura', sans-serif;
+  --font-interface: 'Jura', sans-serif;
+  --font-monospace: 'Iceland', monospace;
+  --default-font: 'Jura', sans-serif;
+
+  /* Obsidian Standard Font Assignment */
+  --font-text-theme: var(--font-text);
+  --font-interface-theme: var(--font-interface);
+  --font-monospace-theme: var(--font-monospace);
+
+  /* Geometry: 100% Sharp Neo-Brutalist (0 Radius Everywhere) */
+  --radius-xs: 0px;
+  --radius-s:  0px;
+  --radius-m:  0px;
+  --radius-l:  0px;
+  --radius-xl: 0px;
+  --button-radius: 0px;
+  --input-radius:  0px;
+  --tab-radius:    0px;
+  --tab-radius-active: 0px;
+  --tab-curve:     0px;
+  --tab-outline-width: 0px;
+  --tab-outline-color: transparent;
+  --tab-container-background: transparent;
+  --checkbox-radius: 0px;
+  --tag-radius:    0px;
+  --modal-radius:  0px;
+  --pill-radius:   0px;
+  --border-width:  1px;
+
+  /* Heading Font Weights & Alignment */
+  --heading-spacing: 1.2em 0 0.4em 0;
+  --font-weight-headings: 700;
+  --line-height-normal: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT MODE (Default — Ice, Blue & Lime)
+   -------------------------------------------------------------------------- */
+.theme-light {
+  /* Obsidian Core Backgrounds */
+  --background-primary:        var(--swatch-ice);
+  --background-primary-alt:    #E5E8F4;
+  --background-secondary:      var(--swatch-ice);
+  --background-secondary-alt:  var(--swatch-lavender);
+
+  /* Borders & Dividers */
+  --background-modifier-border:       var(--swatch-blue);
+  --background-modifier-border-hover: var(--swatch-blue);
+  --background-modifier-border-focus: var(--swatch-blue);
+  --divider-color:                    var(--swatch-blue);
+  --border-primary:                   var(--swatch-blue);
+
+  /* Form Elements */
+  --background-modifier-form-field:             var(--swatch-ice);
+  --background-modifier-form-field-highlighted: var(--swatch-lavender);
+  --background-modifier-box-shadow:             none;
+
+  /* Text Colors */
+  --text-normal:       var(--swatch-blue);
+  --text-muted:        var(--swatch-slate);
+  --text-faint:        var(--swatch-slate);
+  --text-accent:       var(--swatch-blue);
+  --text-accent-hover: var(--swatch-red);
+  --text-on-accent:    var(--swatch-blue);
+  --text-selection:    rgba(169, 231, 27, 0.45);
+  --caret-color:       var(--swatch-blue);
+
+  /* Headings */
+  --h1-color: var(--swatch-blue);
+  --h2-color: var(--swatch-blue);
+  --h3-color: var(--swatch-blue);
+  --h4-color: var(--swatch-blue);
+  --h5-color: var(--swatch-blue);
+  --h6-color: var(--swatch-blue);
+
+  /* Interactive / Buttons */
+  --interactive-normal:       var(--swatch-ice);
+  --interactive-hover:        var(--swatch-lavender);
+  --interactive-accent:       var(--swatch-lime);
+  --interactive-accent-hover: var(--swatch-lime);
+
+  /* Links & Internal Links */
+  --link-color:                var(--swatch-blue);
+  --link-color-hover:          var(--swatch-red);
+  --link-external-color:       var(--swatch-blue);
+  --link-external-color-hover: var(--swatch-red);
+
+  /* Tags */
+  --tag-color:            var(--swatch-blue);
+  --tag-background:       var(--swatch-lavender);
+  --tag-background-hover: var(--swatch-lime);
+  --tag-border-color:     var(--swatch-blue);
+  --tag-border-width:     1px;
+
+  /* Status Bar & Header */
+  --titlebar-background:         var(--swatch-ice);
+  --titlebar-background-focused: var(--swatch-ice);
+  --titlebar-text-color-focused: var(--swatch-blue);
+  --status-bar-background:       var(--swatch-ice);
+  --status-bar-text-color:       var(--swatch-blue);
+  --status-bar-border-color:     var(--swatch-blue);
+
+  /* Code Blocks */
+  --code-background: var(--swatch-lavender);
+  --code-normal:     var(--swatch-blue);
+  --code-comment:    var(--swatch-slate);
+
+  /* Scrollbars */
+  --scrollbar-thumb-bg:        var(--swatch-lavender);
+  --scrollbar-active-thumb-bg: var(--swatch-blue);
+
+  /* Checkboxes */
+  --checkbox-color:        var(--swatch-lime);
+  --checkbox-border-color: var(--swatch-blue);
+  --checkbox-marker-color: var(--swatch-blue);
+
+  /* Tabs */
+  --tab-background-active:         var(--swatch-ice);
+  --tab-background-inactive:       rgba(199, 201, 218, 0.3);
+  --tab-text-color:                var(--swatch-slate);
+  --tab-text-color-active:         var(--swatch-blue);
+  --tab-text-color-focused:        var(--swatch-slate);
+  --tab-text-color-focused-active: var(--swatch-blue);
+  --tab-outline-color:             transparent;
+  --tab-outline-width:             0px;
+}
+
+/* --------------------------------------------------------------------------
+   DARK MODE (Slate, Lime & Lavender)
+   -------------------------------------------------------------------------- */
+.theme-dark {
+  /* Obsidian Core Backgrounds */
+  --background-primary:        var(--swatch-slate);
+  --background-primary-alt:    #525465;
+  --background-secondary:      var(--swatch-slate);
+  --background-secondary-alt:  #525465;
+
+  /* Borders & Dividers */
+  --background-modifier-border:       var(--swatch-lavender);
+  --background-modifier-border-hover: var(--swatch-lime);
+  --background-modifier-border-focus: var(--swatch-lime);
+  --divider-color:                    var(--swatch-lavender);
+  --border-primary:                   var(--swatch-lavender);
+
+  /* Form Elements */
+  --background-modifier-form-field:             #525465;
+  --background-modifier-form-field-highlighted: #464858;
+  --background-modifier-box-shadow:             none;
+
+  /* Text Colors */
+  --text-normal:       var(--swatch-lavender);
+  --text-muted:        var(--swatch-ice);
+  --text-faint:        var(--swatch-lavender);
+  --text-accent:       var(--swatch-lime);
+  --text-accent-hover: var(--swatch-ice);
+  --text-on-accent:    var(--swatch-slate);
+  --text-selection:    rgba(169, 231, 27, 0.35);
+  --caret-color:       var(--swatch-lime);
+
+  /* Headings */
+  --h1-color: var(--swatch-lime);
+  --h2-color: var(--swatch-lime);
+  --h3-color: var(--swatch-lime);
+  --h4-color: var(--swatch-lime);
+  --h5-color: var(--swatch-lime);
+  --h6-color: var(--swatch-lime);
+
+  /* Interactive / Buttons */
+  --interactive-normal:       var(--swatch-slate);
+  --interactive-hover:        #525465;
+  --interactive-accent:       var(--swatch-lime);
+  --interactive-accent-hover: var(--swatch-lime);
+
+  /* Links & Internal Links */
+  --link-color:                var(--swatch-lime);
+  --link-color-hover:          var(--swatch-ice);
+  --link-external-color:       var(--swatch-lime);
+  --link-external-color-hover: var(--swatch-ice);
+
+  /* Tags */
+  --tag-color:            var(--swatch-lime);
+  --tag-background:       #525465;
+  --tag-background-hover: var(--swatch-lime);
+  --tag-border-color:     var(--swatch-lavender);
+  --tag-border-width:     1px;
+
+  /* Status Bar & Header */
+  --titlebar-background:         var(--swatch-slate);
+  --titlebar-background-focused: var(--swatch-slate);
+  --titlebar-text-color-focused: var(--swatch-lime);
+  --status-bar-background:       var(--swatch-slate);
+  --status-bar-text-color:       var(--swatch-ice);
+  --status-bar-border-color:     var(--swatch-lavender);
+
+  /* Code Blocks */
+  --code-background: #525465;
+  --code-normal:     var(--swatch-lavender);
+  --code-comment:    var(--swatch-ice);
+
+  /* Scrollbars */
+  --scrollbar-thumb-bg:        #525465;
+  --scrollbar-active-thumb-bg: var(--swatch-lime);
+
+  /* Checkboxes */
+  --checkbox-color:        var(--swatch-lime);
+  --checkbox-border-color: var(--swatch-lavender);
+  --checkbox-marker-color: var(--swatch-slate);
+
+  /* Tabs */
+  --tab-background-active:         var(--swatch-slate);
+  --tab-background-inactive:       rgba(0, 0, 0, 0.25);
+  --tab-text-color:                var(--swatch-lavender);
+  --tab-text-color-active:         var(--swatch-lime);
+  --tab-text-color-focused:        var(--swatch-lavender);
+  --tab-text-color-focused-active: var(--swatch-lime);
+  --tab-outline-color:             transparent;
+  --tab-outline-width:             0px;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY RULES (Left-Aligned, Uppercase Headings, Jura Body)
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-text);
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.view-header-title,
+.inline-title,
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+  letter-spacing: 0.02em;
+}
+
+h1, .markdown-rendered h1, .inline-title {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 6px;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+.markdown-rendered p,
+.markdown-rendered li,
+.cm-content {
+  text-align: left !important;
+  font-family: var(--font-text);
+}
+
+/* --------------------------------------------------------------------------
+   INTERNAL WIKILINKS ([[Note]]) — SIGNATURE ICE BLOCK BADGE
+   -------------------------------------------------------------------------- */
+.theme-light .markdown-rendered a.internal-link,
+.theme-light .cm-s-obsidian span.cm-hmd-internal-link,
+.theme-light .cm-link .cm-underline {
+  background-color: var(--swatch-lime) !important;
+  color: var(--swatch-blue) !important;
+  border: 1px solid var(--swatch-blue) !important;
+  font-family: var(--font-monospace) !important;
+  font-size: 0.9em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 0px !important;
+  text-decoration: none !important;
+  display: inline-block;
+  line-height: 1.25;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.theme-dark .markdown-rendered a.internal-link,
+.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
+.theme-dark .cm-link .cm-underline {
+  background-color: var(--swatch-lime) !important;
+  color: var(--swatch-slate) !important;
+  border: 1px solid var(--swatch-slate) !important;
+  font-family: var(--font-monospace) !important;
+  font-size: 0.9em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 0px !important;
+  text-decoration: none !important;
+  display: inline-block;
+  line-height: 1.25;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Hover tactile elevation */
+.markdown-rendered a.internal-link:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 currentColor;
+  text-decoration: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   TAGS (#tag)
+   -------------------------------------------------------------------------- */
+.markdown-rendered a.tag,
+.cm-s-obsidian span.cm-hashtag {
+  font-family: var(--font-monospace) !important;
+  text-transform: uppercase;
+  font-size: 0.88em;
+  border-radius: 0px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  padding: 1px 6px;
+  text-decoration: none !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.markdown-rendered a.tag:hover,
+.cm-s-obsidian span.cm-hashtag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 var(--background-modifier-border);
+}
+
+/* --------------------------------------------------------------------------
+   BUTTONS & TACTILE INTERACTIONS (y+2 box-shadow hover)
+   -------------------------------------------------------------------------- */
+button,
+.mod-cta,
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.theme-light button.mod-cta {
+  background: var(--swatch-lime) !important;
+  color: var(--swatch-blue) !important;
+  border-color: var(--swatch-blue) !important;
+}
+
+.theme-dark button.mod-cta {
+  background: var(--swatch-lime) !important;
+  color: var(--swatch-slate) !important;
+  border-color: var(--swatch-lavender) !important;
+}
+
+button:hover:not(:disabled),
+.mod-cta:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 var(--background-modifier-border) !important;
+}
+
+button:active:not(:disabled),
+.mod-cta:active:not(:disabled) {
+  transform: translateY(0px) !important;
+  box-shadow: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   CHECKBOXES & TASK LISTS
+   -------------------------------------------------------------------------- */
+input[type="checkbox"],
+.task-list-item-checkbox {
+  border-radius: 0px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  position: relative;
+  transition: background 0.12s ease;
+}
+
+input[type="checkbox"]:checked,
+.task-list-item-checkbox:checked {
+  background-color: var(--swatch-lime) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+input[type="checkbox"]:checked::after,
+.task-list-item-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--theme-checkbox-marker, var(--swatch-blue));
+}
+
+.theme-dark input[type="checkbox"]:checked::after,
+.theme-dark .task-list-item-checkbox:checked::after {
+  color: var(--swatch-slate) !important;
+}
+
+/* --------------------------------------------------------------------------
+   INPUT FIELDS & SEARCH
+   -------------------------------------------------------------------------- */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+  border-radius: 0px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  font-family: var(--font-text) !important;
+  background: var(--background-modifier-form-field) !important;
+  color: var(--text-normal) !important;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: 0 2px 0 var(--background-modifier-border) !important;
+}
+
+/* --------------------------------------------------------------------------
+   SIDEBARS, SPLITS & NAVIGATION
+   -------------------------------------------------------------------------- */
+.workspace-ribbon {
+  border-right: 1px solid var(--background-modifier-border) !important;
+}
+
+.workspace-split.mod-left-split {
+  border-right: 1px solid var(--background-modifier-border) !important;
+}
+
+.workspace-split.mod-right-split {
+  border-left: 1px solid var(--background-modifier-border) !important;
+}
+
+.nav-folder-title,
+.nav-file-title {
+  border-radius: 0px !important;
+  font-family: var(--font-interface);
+}
+
+.nav-file-title.is-active {
+  border: 1px solid var(--background-modifier-border) !important;
+}
+
+.theme-light .nav-file-title.is-active {
+  background-color: var(--swatch-lavender) !important;
+  color: var(--swatch-blue) !important;
+}
+
+.theme-dark .nav-file-title.is-active {
+  background-color: #525465 !important;
+  color: var(--swatch-lime) !important;
+}
+
+/* --------------------------------------------------------------------------
+   TABS & TAB HEADERS (Flat Neo-Brutalist, No Upper Borders, No Curved Wings, No Shadows)
+   -------------------------------------------------------------------------- */
+.workspace-tab-header-container,
+.workspace-tab-header-container-inner {
+  box-shadow: none !important;
+}
+
+.workspace-tab-header::before,
+.workspace-tab-header::after {
+  display: none !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
+.workspace-tab-header {
+  border-radius: 0px !important;
+  border-top: none !important;
+  border-top-width: 0px !important;
+  box-shadow: none !important;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+}
+
+.workspace-tab-header.is-active {
+  border-radius: 0px !important;
+  border-top: none !important;
+  border-top-width: 0px !important;
+  box-shadow: none !important;
+}
+
+.workspace-tab-header-inner {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  border-top: none !important;
+}
+
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active,
+.mod-root .workspace-tab-header.is-active {
+  border-top: none !important;
+  border-top-width: 0px !important;
+  box-shadow: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   MODALS, PROMPTS & MENUS
+   -------------------------------------------------------------------------- */
+.modal,
+.prompt,
+.menu {
+  border-radius: 0px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+.modal-title {
+  font-family: var(--font-heading) !important;
+  text-transform: uppercase !important;
+  font-weight: 700;
+  text-align: left !important;
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   CODE BLOCKS & INLINE CODE
+   -------------------------------------------------------------------------- */
+code,
+kbd,
+pre {
+  font-family: var(--font-monospace) !important;
+  border-radius: 0px !important;
+}
+
+.markdown-rendered :not(pre) > code {
+  border: 1px solid var(--background-modifier-border);
+  padding: 1px 4px;
+}
+
+pre {
+  border: 1px solid var(--background-modifier-border) !important;
+  padding: 12px !important;
+}
+
+/* --------------------------------------------------------------------------
+   CALLOUTS & BLOCKQUOTES
+   -------------------------------------------------------------------------- */
+.callout {
+  border-radius: 0px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  background-color: var(--background-secondary-alt) !important;
+}
+
+.callout-title {
+  font-family: var(--font-heading) !important;
+  text-transform: uppercase !important;
+  font-weight: 700;
+}
+
+blockquote {
+  border-radius: 0px !important;
+  border-left: 3px solid var(--background-modifier-border) !important;
+  font-family: var(--font-text);
+  margin-left: 0;
+  padding-left: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   TABLES
+   -------------------------------------------------------------------------- */
+.markdown-rendered table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.markdown-rendered th,
+.markdown-rendered td {
+  border: 1px solid var(--background-modifier-border) !important;
+  padding: 6px 12px;
+  text-align: left !important;
+}
+
+.markdown-rendered th {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-weight: 700;
+  background: var(--background-secondary-alt);
+}
+
+/* --------------------------------------------------------------------------
+   STATUS BAR
+   -------------------------------------------------------------------------- */
+.status-bar {
+  font-family: var(--font-monospace) !important;
+  font-size: 13px !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+}
